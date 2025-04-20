@@ -11,39 +11,25 @@ data_mahasiswa = [
     ["Desi", 63]
 ]
 
-def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        swapped = False
-        
-        for j in range(0, n-i-1):
-            if arr[j][1] < arr[j+1][1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-                swapped = True
-                
-        if swapped == False:
-            break
-    
-    return arr
-
 def selecttionsort(S):
     n= len(S)
     for i in range(n-1):
-        print(S)
         smallest = i
         for j in range(i+1,n):
-            if S[j] < S[smallest]:
+            if S[j][1] < S[smallest][1]:
                 smallest = j
         S[i], S[smallest] = S[smallest], S[i]
 
-hasil_bubble_sort = bubble_sort(data_mahasiswa)
+    return S
+
+hasil_selection_sort = selecttionsort(data_mahasiswa)
 
 # Menampilkan hasil bubble sort
-print("\nHasil Pengurutan dengan Bubble Sort:")
+print("\nHasil Pengurutan dengan Selection Sort:")
 print("=========================================================")
 print("No. | Nama\t\t| Nilai")
 print("-----------------------------------------")
-for i, mahasiswa in enumerate(hasil_bubble_sort, 1):
+for i, mahasiswa in enumerate(hasil_selection_sort, 1):
     if len(mahasiswa[0]) < 10:
         print(f"{i}   | {mahasiswa[0]}\t\t| {mahasiswa[1]}")
     else:
